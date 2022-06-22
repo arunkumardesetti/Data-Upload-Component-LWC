@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ImportRecordsController</members>
+        <members>ImportRecordsControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>importRecords</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>Data_Upload_Template__mdt.Data_Type__c</members>
+        <members>Data_Upload_Template__mdt.Field_API_Name__c</members>
+        <members>Data_Upload_Template__mdt.Is_External_ID__c</members>
+        <members>Data_Upload_Template__mdt.Is_Lookup_Master_Detail__c</members>
+        <members>Data_Upload_Template__mdt.Lookup_Master_Detail_To__c</members>
+        <members>Data_Upload_Template__mdt.Object_Api_name__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Data_Upload_Template__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Data_Upload_Template.Test_External_ID</members>
+        <members>Data_Upload_Template.Account_Name_Account</members>
+        <members>Data_Upload_Template.Account_Name_Case</members>
+        <members>Data_Upload_Template.Status</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>Data_Upload_Template__mdt-Data Upload Templates Layout</members>
+        <name>Layout</name>
+    </types>
+    <version>54.0</version>
+</Package>

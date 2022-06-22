@@ -1,0 +1,62 @@
+<template>
+    <lightning-card title="Import Data">
+        <lightning-tabset>
+            <lightning-tab label="Upload File">
+                <template if:true={showLoadingSpinner}>
+                    <div style="z-index: 10000 !important;">
+                        <lightning-spinner alternative-text="Uploading......" size="medium" style="z-index: 10000 !important;"></lightning-spinner>
+                    </div>
+                </template>
+                <div style="margin-left:5%;margin-right:5%;">
+                    <div style="width: 150px;">
+                        <lightning-combobox name="objects" label="Object" value={selectedObjValue}
+                        placeholder="Select an Object" options={objectOptions} onchange={handleObjectChange} required>
+                        </lightning-combobox>
+                        <lightning-combobox name="ParentObjects" label=" Parent Object" value={selectedParentObjValue}
+                        placeholder="Select an Object" options={objectOptions} onchange={handleParentObjectChange}>
+                        </lightning-combobox>
+                    </div><br/>
+                    <div style="border: 1px solid grey; border-radius: 8px; padding: 30px">
+                        <div>
+                            <lightning-input label="" name="file uploader" type="file" onchange={handleFilesChange} accept={acceptedCSVFormats}></lightning-input>
+                        </div><br/>
+                        <div class="slds-text-body_small slds-text-color_success" if:true={fileName}>
+                            {fileName}
+                        </div>
+                        <div class="slds-text-body_small slds-text-color_error" if:true={error}>
+                            <lightning-formatted-text value={error}></lightning-formatted-text>
+                        </div><br/>
+                    </div><br/>
+                    <div>
+                        <lightning-button class="slds-m-top--medium" label="Upload CSV File"  variant="brand" onclick={handleSave} disabled={disableButton}></lightning-button>
+                    </div>
+                </div><br/><br/>
+                <template if:true={uploadReport}>
+                    <div style="margin-left:5%;margin-right:5%;">
+                        <div class="slds-text-heading_small">Download Report</div><br/>
+                        <div>
+                            <lightning-button class="slds-m-top--medium" label="Success File"  variant="success" onclick={handleSuccessFile} disabled={successDisableButton}></lightning-button>
+                            <lightning-button class="slds-m-top--medium" label="Error File"  variant="destructive" onclick={handleErrorFile} disabled={errorDisableButton} style="margin-left:4%"></lightning-button>
+                        </div>
+                    </div>
+                </template>
+            </lightning-tab>
+            <lightning-tab label="Download Template" title="2nd tab extended title">
+                <div class="slds-align_absolute-center" style="margin-left:5%; margin:0px auto; width: 300px;">
+                    <div style="width: 150px;">
+                        <lightning-combobox name="TemplateObjects" label="Object" value={TemplateObjValue}
+                        placeholder="Select an Object" options={objectOptions} onchange={handleTemplateObjectChange} required>
+                        </lightning-combobox>
+                        <lightning-combobox name="TemplateParentObjects" label="Parent Object" value={TemplateParentObjValue}
+                            placeholder="Select an Object" options={objectOptions} onchange={handleTemplateParentObjectChange}>
+                        </lightning-combobox><br/>
+                        <lightning-button variant="Brand" label="Download Template" onclick={downloadTemplate} disabled={disableTemplateButton} style="padding-bottom: 15px;"></lightning-button><br/><br/>
+                        <div class="slds-text-body_small slds-text-color_error" if:true={templateError}>
+                            <lightning-formatted-text value={templateError}></lightning-formatted-text>
+                        </div><br/>
+                    </div>
+                </div>
+            </lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+</template>
